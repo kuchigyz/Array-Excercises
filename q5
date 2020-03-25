@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace KuchiGyz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var userInput = InputToList();
+            userInput.Sort();
+            Console.WriteLine("Three smallest numbers are {0}, {1} and {2}", userInput[0], userInput[1], userInput[2]);
+        }
+        public static List<int> InputToList()
+        {
+            var intList = new List<int>();
+            var sList = new List<string>();
+            bool validInput;
+            do
+            {
+                validInput = true;
+                Console.WriteLine("Input a comma separated list of atleast 5 integers:");
+                string sUserInput = Console.ReadLine();
+                sList = sUserInput.Trim().Split(", ").ToList();
+
+                try
+                {
+                    foreach (var item in sList) { intList.Add(int.Parse(item)); }
+                }
+                catch (Exception)
+                {
+                    validInput = false;
+                    Console.WriteLine("Error. Enter Valid input.");
+                }
+                if (intList.Count < 5)
+                {
+                    validInput = false;
+                }
+            } while (validInput == false);
+            return intList;
+        }
+    }
+}
