@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+
+namespace KuchiGyz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list = new List<char>();
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
+            string reversed = "";
+            foreach (var item in name)
+            {
+                list.Add(item);
+            }
+            list.Reverse();
+            foreach (var item in list)
+            {
+                reversed += item;
+            }
+            Console.WriteLine("Your name in reverse is {0}", reversed);
+        }
+    }
+}
