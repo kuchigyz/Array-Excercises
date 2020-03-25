@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+namespace KuchiGyz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list = new List<string>();
+            string name;
+            while (true)
+            {
+                Console.Write("Enter a name: ");
+                name = Console.ReadLine();
+                if (name == "")
+                {
+                    break;
+                }
+                list.Add(name);
+            }
+            switch (list.Count)
+            {
+                case 0:
+                    Console.WriteLine("No one liked your post yet.");
+                    break;
+                case 1:
+                    Console.WriteLine("{0} liked your post.", list[0]);
+                    break;
+                case 2:
+                    Console.WriteLine("{0} and {1} liked your post.", list[0], list[1]);
+                    break;
+                default:
+                    Console.WriteLine("{0}, {1} and {2} others liked your post.", list[0], list[1], list.Count - 2);
+                    break;
+            }
+        }
+    }
+}
