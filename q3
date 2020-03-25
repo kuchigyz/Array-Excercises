@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+
+namespace KuchiGyz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list = new List<int>();
+
+            while (list.Count < 5)
+            {
+                Console.Write("Enter a number: ");
+                int number = int.Parse(Console.ReadLine());
+                if (list.Contains(number))
+                {
+                    Console.WriteLine("Number already exists, try again.");
+                }
+                else
+                {
+                    list.Add(number);
+                }
+            }
+            list.Sort();
+            Console.WriteLine("The greatest number is {0}", list[list.Count - 1]);
+        }
+    }
+}
